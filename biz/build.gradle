@@ -1,0 +1,6 @@
+dependencies {
+  compile project(':dal')
+  compile springBootStarterAop
+  compile springBootStarterRedis
+  compile jwt
+}

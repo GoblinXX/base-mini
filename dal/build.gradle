@@ -1,0 +1,12 @@
+dependencies {
+  compile springBootStarter
+  compile mybatisPlusStarter
+  compile springBootStarterSecurity
+  compile jackSonDatabind
+  compile jackSonAnnotations
+
+  implementation bouncycastle
+  implementation mysqlConnector
+  implementation springBootDruidStarter
+}
+

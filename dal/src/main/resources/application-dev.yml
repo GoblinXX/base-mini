@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: jdbc:mysql:///mini?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: p@ssWord2019
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+  redis:
+    host: 127.0.0.1
+    password: p@ssWord2019
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  typeAliasesPackage: com.byy.dal.entity
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      db-type: mysql
+  configuration:
+    lazyLoadingEnabled: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+security:
+  jwt:
+    secure: jwtSecureKey
+    expire-time: 8640000000000
+    header: Authorization
+  permit-urls:
+  - /user/check-login
+  - /error
+  - /json
+  login-success-url: /user/auth/success
+  login-fail-url: /user/auth/fail
+  login-url: /user/auth/login
+
+server:
+  servlet:
+    context-path: /mini/api/v1
+  port: 8080

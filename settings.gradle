@@ -1,0 +1,6 @@
+rootProject.name = 'mini'
+include 'dal'
+include 'biz'
+include 'api'
+include 'docs'
+
