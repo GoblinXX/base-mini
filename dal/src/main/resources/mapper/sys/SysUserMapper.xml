@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.byy.dal.mapper.sys.SysUserMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.byy.dal.entity.beans.sys.SysUser">
+    <id column="id" property="id"/>
+    <result column="created_at" property="createdAt"/>
+    <result column="updated_at" property="updatedAt"/>
+    <result column="version" property="version"/>
+    <result column="archive" property="archive"/>
+    <result column="name" property="name"/>
+    <result column="username" property="username"/>
+    <result column="password" property="password"/>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    su.id, su.created_at, su.updated_at, su.version, su.archive, su.name, su.username, su.password
+  </sql>
+
+</mapper>
+
+

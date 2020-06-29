@@ -1,0 +1,164 @@
+{
+	"id": "9a7bf999-af8a-45bc-8d89-d2660c725006",
+	"name": "后台用户基本登录",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"28ad7914-08ab-44fe-9830-849ba57f5d2e",
+		"33bf06a5-78f6-4cd4-be6c-b7d9e63acadd",
+		"044f65b4-4824-4fda-a627-d4a93296deea",
+		"1f2adcae-97bc-4de4-bfcc-cbd3e80f1f6b",
+		"69c3f312-d577-43db-9c55-5e9f5b2fe161"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "044f65b4-4824-4fda-a627-d4a93296deea",
+			"name": "添加用户",
+			"url": "{{l}}/mini/api/v1/sys-user",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"name\": \"laowang\",\n    \"username\": \"admin4\",\n    \"password\": \"123456\",\n    \"sysAuthorities\": [\n        \"订单2\",\n        \"商品2\"\n    ]\n}",
+			"headers": "Content-Type: application/json\nAuthorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "1f2adcae-97bc-4de4-bfcc-cbd3e80f1f6b",
+			"name": "修改用户",
+			"url": "{{l}}/mini/api/v1/sys-user",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"id\": 4,\n    \"name\": \"laowang2\",\n    \"username\": \"admin4\",\n    \"password\": \"123456\",\n    \"sysAuthorities\": [\n        \"订单2\",\n        \"商品2\"\n    ]\n}",
+			"headers": "Content-Type: application/json\nAuthorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "28ad7914-08ab-44fe-9830-849ba57f5d2e",
+			"name": "登录",
+			"url": "{{l}}/mini/api/v1/login/sys",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"username\":\"admin\",\n\t\"password\":\"123456\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "33bf06a5-78f6-4cd4-be6c-b7d9e63acadd",
+			"name": "用户列表(分页)",
+			"url": "{{l}}/mini/api/v1/sys-user/page?page=1&size=3",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "69c3f312-d577-43db-9c55-5e9f5b2fe161",
+			"name": "删除用户",
+			"url": "{{l}}/mini/api/v1/sys-user/4",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		}
+	]
+}

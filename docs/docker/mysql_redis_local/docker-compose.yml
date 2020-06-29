@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  my-db:
+    image: mysql:8.0.15
+    container_name: mysql
+    restart: always
+    volumes:
+    - /opt/mysql/data:/var/lib/mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssWord2019
+    - MYSQL_DATABASE=mini
+    - TZ=Asia/Shanghai
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-client-handshake=FALSE
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --explicit_defaults_for_timestamp=true
+      --max_allowed_packet=10M
+      --lower_case_table_names=1
+      --default-time_zone='+8:00'
+    ports:
+    - 3306:3306
+    networks:
+    - my-overlay
+
+  my-redis:
+    image: redis:5.0.4-alpine
+    container_name: redis
+    restart: always
+    volumes:
+    - /opt/redis/data:/data
+    environment:
+    - TZ=Asia/Shanghai
+    command:
+      --requirepass p@ssWord2019
+      --appendonly yes
+    ports:
+    - 6379:6379
+    networks:
+    - my-overlay
+
+networks:
+  my-overlay:
+    external: true

@@ -1,0 +1,114 @@
+{
+	"id": "d9b61694-c273-41d1-ade4-c3ae394ba1b3",
+	"name": "地址",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"7f6a4006-807a-497c-bea8-e96c345a4345",
+		"5b3b4f0a-fb5c-4525-8cfd-0624a0bda1b0",
+		"d04bd8d0-032b-495e-abaa-21f785a9fd59",
+		"5079c23d-5a66-4c7e-9263-82741184677d"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "5079c23d-5a66-4c7e-9263-82741184677d",
+			"name": "查询市下面的区",
+			"url": "{{l}}/mini/api/v1/address/area/140600",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5b3b4f0a-fb5c-4525-8cfd-0624a0bda1b0",
+			"name": "查询所有省",
+			"url": "{{l}}/mini/api/v1/address/province",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7f6a4006-807a-497c-bea8-e96c345a4345",
+			"name": "根据areaId查询省市区",
+			"url": "{{l}}/mini/api/v1/address/chain/120101",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d04bd8d0-032b-495e-abaa-21f785a9fd59",
+			"name": "查询省下面的市",
+			"url": "{{l}}/mini/api/v1/address/city/140000",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"description": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOjEsXCJ0eXBlXCI6XCJzeXNcIixcInNpZ25hdHVyZVwiOlwiMWY5Y2NjYTQwNzhhYmE1Y2RiOTBiOGY1MjIwODI5NDhcIn0iLCJleHAiOjEwMjAxNzE1OTc0fQ.3qKoD7NaZ0JbmmKtX4M7gThdGzheO_fRTpIwekTApf-MmHxN5ILbbiV_1-RAFLKq3ewcXEHcRmQ_Zob_jSTe1g\n",
+			"pathVariables": {}
+		}
+	]
+}
