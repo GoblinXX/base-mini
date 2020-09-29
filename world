@@ -1,1 +1,123 @@
-1去1
+关于折现图接口开发心得
+
+需求：
+  趣改项目需要开发后台首页，用户选择一个时间段，筛选出指定的值，格式如下：
+  
+            
+  
+
+要求：
+mysql按日期分组（group by）查询统计，数据空缺用0补充。
+
+案例中的数据结构和数据如上图 。
+
+在没有解决问题的时候，sql是这样写的：
+SELECT
+
+       DATE_FORMAT(o.updated_at, '%Y-%m-%d')  date,
+       count(*) as ytdOrderNo,sum(o.paid_fee) as ytdOrderPrice
+FROM
+     qg_order o
+WHERE
+    DATE_FORMAT(o.updated_at, '%Y-%m-%d') between '2019-04-11' and '2019-04-25'
+  and o.archive = false
+
+GROUP BY date
+ORDER BY date;
+
+
+显示如下：
+
+
+
+可以看出，给定的时间是2019-04-11到2019-04-25 ，如果那天没有数据，那么就会没有记录 。这跟预期不一样，我给的参数就算是没有也要显示出来，不然前端怎么拿数据去做折线图。
+
+如何实现？ 参考自https://blog.csdn.net/smilecall/article/details/78319242
+
+我们要生成一个日历的表，然后和原来的数据，联合查询
+执行下面的sql，直接诶生成日历的表（calendar）
+
+
+CREATE TABLE num (i int);-- 创建一个表用来储存0-9的数字
+INSERT INTO num (i) VALUES (0), (1), (2), (3), (4), (5), (6), (7), (8), (9);-- 生成0-9的数字，方便以后计算时间
+
+CREATE TABLE  if not exists calendar(datelist date); -- 生成一个存储日期的表，datalist是字段名
+-- 这里是生成并插入日期数据
+INSERT INTO calendar(datelist) SELECT
+    adddate(
+        (   -- 这里的起始日期，你可以换成当前日期
+            DATE_FORMAT("2016-1-1", '%Y-%m-%d') 
+        ),
+        numlist.id
+    ) AS `date`
+FROM
+    (
+        SELECT
+            n1.i + n10.i * 10 + n100.i * 100 + n1000.i * 1000+ n10000.i * 10000 AS id
+        FROM
+            num n1
+        CROSS JOIN num AS n10
+        CROSS JOIN num AS n100
+        CROSS JOIN num AS n1000
+        CROSS JOIN num AS n10000
+    ) AS numlist;
+
+alter  table  calendar add total_price DECIMAL(12,2) default 0;
+--完成之后删除num临时表
+drop table num;
+
+
+好了 附上sql查询代码
+SELECT date(dday) ddate, count(*) - 1 as ytdOrderNo,sum(a.total_price) as ytdOrderPrice
+FROM (SELECT datelist as dday, total_price
+      FROM calendar
+
+      where '2019-04-01' <= date(datelist) && date(datelist) <= '2019-04-05'
+      UNION ALL
+      SELECT updated_at,paid_fee FROM qg_order where archive = false
+     and updated_at >='2019-04-01' && updated_at <= '2019-04-05') a
+GROUP BY ddate;
+
+预期效果完美~!
+
+顺便附上xml
+
+<select id="countForOrder" resultType="MallHomeDO">
+    SELECT
+    date(dday) countDate,
+    count(*) - 1 as ytdOrderNo,
+    sum(a.total_price)  as ytdOrderPrice
+    FROM
+    (
+    SELECT
+    datelist as dday,
+    total_price
+    FROM
+    calendar
+    where  <![CDATA[#{startTime} <= date(datelist)&&date(datelist)<= #{endTime}]]>
+    UNION ALL
+    SELECT
+    updated_at,
+    paid_fee
+    FROM
+    qg_order
+    where  archive =false
+     and  <![CDATA[updated_at >=#{startTime} && updated_at <= #{endTime}]]>
+    ) a
+    GROUP BY countDate
+</select>
+
+封装一个DO去接收，最后有jdk8特性Stream去解析数据，这里仅仅给一个参考：
+List<MallHomeDO> afterSaleOrder =
+    orderMapper.getAfterSaleOrder(form.getStartTime(), form.getEndTime());
+afterSaleOrder.stream()
+    .map(
+        count -> {
+          totalAfterSaleOrder.add(count.getTotalAfterSaleOrder());
+          mallHome.setTotalAfterSaleOrder(totalAfterSaleOrder);
+          return mallHome;
+        })
+    .collect(Collectors.toList());
+
+
+念念不忘，终有回报
